@@ -9,4 +9,5 @@ var_dump($data[0]["city"]); */
 
 // phpinfo();
 
-echo file_get_contents("compress.bzip2://" . __DIR__ . "/data/singapore.json.bz2");
+$data = json_decode(file_get_contents("compress.bzip2://" . __DIR__ . "/data/singapore.json.bz2"), true);
+var_dump( $data );
