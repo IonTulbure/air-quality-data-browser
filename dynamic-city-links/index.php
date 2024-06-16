@@ -20,16 +20,6 @@ $cities = json_decode(
             </a>
         </li>
     <?php endforeach; ?>
-
-    <?php foreach ($cities as $city) : ?>
-        <li>
-            <a href="city.php?<?php echo http_build_query(['city' => $city['city']]); ?>">
-                <?php echo e($city['city']); ?>,
-                <?php echo e($city['country']); ?>
-                (<?php echo e($city['flag']); ?>)
-            </a>
-        </li>
-    <?php endforeach; ?>
 </ul>
 
 <?php require __DIR__ . '/views/footer.inc.php'; ?>
