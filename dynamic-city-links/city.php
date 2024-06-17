@@ -9,13 +9,13 @@ if (!empty($_GET['city'])) {
 
 // var_dump($city);
 
+$filename = null;
+
 if (!empty($city)) {
     $cities = json_decode(
         file_get_contents(__DIR__ . '/../data/index.json'),
         true
     );
-
-    $filename = null;
 
     foreach ($cities as $currentCity) {
         if ($currentCity['city'] === $city) {
@@ -23,11 +23,16 @@ if (!empty($city)) {
             break;
         }
     }
-
     // var_dump($filename);
+}
 
-    // load
-    // prepare data
+if (!empty($filename)) {
+    $data = json_decode(
+        file_get_contents('compress.bzip2://' . __DIR__ . '/../data/' . $filename),
+        true
+    )['results'];
+
+    var_dump($data);
 }
 
 ?>
