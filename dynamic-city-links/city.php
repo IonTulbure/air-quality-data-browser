@@ -10,8 +10,24 @@ if (!empty($_GET['city'])) {
 // var_dump($city);
 
 if (!empty($city)) {
+    $cities = json_decode(
+        file_get_contents(__DIR__ . '/../data/index.json'),
+        true
+    );
+
+    $filename = null;
+
+    foreach ($cities as $currentCity) {
+        if ($currentCity['city'] === $city) {
+            $filename = $currentCity['filename'];
+            break;
+        }
+    }
+
+    // var_dump($filename);
+
     // load
-    // prepare the data
+    // prepare data
 }
 
 ?>
