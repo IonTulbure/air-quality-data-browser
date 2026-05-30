@@ -35,6 +35,7 @@ if (!empty($filename)) {
     $stats = [];
     foreach ($results as $result) {
         if ($result['parameter'] !== 'pm25') continue;
+        if ($result['value'] < 0) continue;
         // var_dump($result);
 
         $month = substr($result['date']['local'], 0, 7);
@@ -47,7 +48,7 @@ if (!empty($filename)) {
         // break;
     }
 
-    // var_dump($stats);
+    var_dump($stats);
 }
 
 ?>
